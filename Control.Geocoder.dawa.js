@@ -31,19 +31,18 @@ L.Control.Geocoder.DAWA = L.Class.extend({
         }, this, 'callback');
     },
 
-    reverse: function(location, scale, cb, context) {
+ reverse: function(location, scale, cb, context) {
         L.Control.Geocoder.jsonp(this.options.serviceUrl + 'reverse/', L.extend({
-            lat: location.lat,
-            lon: location.lng,
-            zoom: Math.round(Math.log(scale / 256) / Math.log(2)),
+            y: location.lat,
+            x: location.lng
         }, this.options.reverseQueryParams), function(data) {
             var result = [],
                 loc;
 
-            if (data && data.lat && data.lon) {
-                loc = L.latLng(data.lat, data.lon);
+            if (data && data.adgangspunkt) {
+                loc = L.latLng(data.adgangspunkt.koordinater[1], data.adgangspunkt.koordinater[0]);
                 result.push({
-                    name: data.display_name,
+                    name: data.vejstykke.navn + " " + data.husnr + ", " + data.postnummer.nr + " " + data.postnummer.navn,
                     center: loc,
                     bounds: L.latLngBounds(loc, loc)
                 });
