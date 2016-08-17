@@ -2,7 +2,7 @@
 Hi all. This is a plugin for Per Liedmann's Leaflet.Control.Geocoder, using the Danish Address Web API (DAWA). 
 
 ### Demo
-I have made a demo, where the API is limited to geocoding addresses in the City of Frederiksberg (municapal code 0147):
+I have made a demo, where the API is limited to geocoding addresses in the City of Frederiksberg (municipal code 0147):
 
 http://lab.kjlr.dk/static/leaflet-control-geocoder-dawa/demo/
 
